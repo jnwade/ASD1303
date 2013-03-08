@@ -1,0 +1,18 @@
+/*
+    // ASD 1303
+	// Mobile Development
+	// Full Sail University
+	// Jonathan Wade
+*/
+
+
+label.error{
+	display: block;
+	margin: 10px 0px 10px 0px ;
+	color: #6DABD4;
+}
+
+#rlimg{
+	padding-left: 50px;
+	position: relative;
+}
