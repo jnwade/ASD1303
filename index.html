@@ -61,7 +61,7 @@
 			<nav data-role="navbar">
 				<ul>
 					<li><a href="#" data-theme="b" id="viewList">View Lists</a></li>
-					<li><a href="#" id="clearList">Clear All</a></li>
+					<li><a href="#" id="clearList" onclick="clearLocal(); location.reload();">Clear All</a></li>
 				</ul>
 			</nav><!-- /navbar -->
 		</header>
@@ -71,9 +71,10 @@
 				
 				<p>* Indicates Required Field</p>
 				
-				<div data-role="fieldcontain">
-				   <select name="genre" id="genres">
-				      <option data-placeholder="true">* Select Genre:</option>
+				<label for="genre"><strong>Genre:</strong></label>
+				<div id="genreSelect" data-role="fieldcontain">
+				   <select id="genres" name="genre" data-native-menu="false">
+				      <option data-placeholder="true">* Select One:</option>
 				      <option value="Disco">Disco</option>
 				      <option value="Funk">Funk</option>
 				      <option value="Classic">Classic</option>
@@ -83,7 +84,7 @@
 				   </select>
 				</div><!--Close Fieldset -->
 								
-	
+
 			<input type="text" name="artist" id="artist" placeholder="* Artist Name" class="required" value=""/>
 	        <input type="text" name="song" id="songName" placeholder="* Song Title" class="required" value=""/>
 	        
@@ -97,9 +98,13 @@
 				<textarea name="textarea" id="notes" placeholder="Add Notes Here!"></textarea>
 			</div>
 	
+			<div id="requestList">
+			
+			</div>
+	
 			<nav data-role="navbar">
 				<ul>
-					<li><input type="submit" value="Add Song" id=""  data-icon="plus" data-theme="b"></li>
+					<li><input type="submit" value="Add Song" id="submitButton"  data-icon="plus" data-theme="b"></li>
 					<li><input type="reset" value="Reset"  data-icon="minus"></li>
 				</ul>
 			</nav><!-- /navbar -->
@@ -109,7 +114,8 @@
 		
 	<!--Request List Page -->
 	
-	<div data-role="page" id="requestList" data-theme="a" class="type-interior">
+	<!--
+<div data-role="page" id="requestList" data-theme="a" class="type-interior">
 	
 		<header data-role="header" data-position="fixed" data-theme="a">
 			<a href="#home" data-rel="back" data-icon="back" data-transition="flow">Back</a>
@@ -122,30 +128,33 @@
 		<img id="requestImg" src="img/requestList.png"/>
 			
 			<section>
-				<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
-				    <li><a href="#">
+				<ul data-role="listview" data-split-icon="forward" data-split-theme="b" data-inset="true">
+				    <li>
+				    	<a href="#" class="songPage">
 				        <img src="img/harvey.jpg">
 				        <h2>Broken Bells</h2>
 				        <p>Broken Bells</p></a>
-				        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+				        <a href="#requestPush" data-rel="popup" data-position-to="window" data-transition="pop">Request Song?</a>
 				    </li>
-				    <li><a href="#">
+				    <li>
+				    	<a href="#" class="songPage">
 				        <img src="img/duran_duran.jpg">
 				        <h2>Warning</h2>
 				        <p>Hot Chip</p></a>
-				        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+				        <a href="#requestPush" data-rel="popup" data-position-to="window" data-transition="pop">Request Song?</a>
 				    </li>
-				    <li><a href="#">
+				    <li>
+				    	<a href="#" class="songPage">
 				        <img src="img/blondie.jpg">
 				        <h2>Wolfgang Amadeus Phoenix</h2>
 				        <p>Phoenix</p></a>
-				        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+				        <a href="#requestPush" data-rel="popup" data-position-to="window" data-transition="pop">Request Song?</a>
 				    </li>
 				</ul>
 			</section>
 			
 
-			<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+			<div data-role="popup" id="requestPush" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
 			    <h3>Request Song?</h3>
 			    <p>An SMS text will be sent to the band.</p>
 			    <a href="#requestList" data-role="button"  data-theme="b" data-icon="check" data-inline="true" data-mini="true">Request</a>
@@ -158,10 +167,11 @@
 			        <ul>
 			            <li><a href="#additem" data-icon="plus">Add Song</a></li>
 			        </ul>
-			    </nav><!-- /navbar -->
-			</footer><!-- /footer -->
+			    </nav>
+			</footer>
 		</div>
 	</div>
+-->
 	
 
 	<!-- JavaScript under here -->
