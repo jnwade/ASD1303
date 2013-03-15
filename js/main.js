@@ -124,7 +124,10 @@ $('#additem').on('pageinit', function(){
 			localStorage.setItem(item);
 			location.reload();
 			alert("Song Saved!");
+			
 		};
+		
+		
 		
 		
  	
