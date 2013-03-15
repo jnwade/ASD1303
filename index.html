@@ -61,7 +61,7 @@
 			
 			<nav data-role="navbar">
 				<ul>
-					<li><a href="#" data-theme="b" id="viewList">View Lists</a></li>
+					<li><a href="#requestList"" data-theme="b" id="viewList">View Lists</a></li>
 					<li><a href="#" id="clearList">Clear All</a></li>
 				</ul>
 			</nav><!-- /navbar -->
@@ -99,11 +99,13 @@
 	
 			<nav data-role="navbar">
 				<ul>
-					<li><input type="submit" value="Add Song" id=""  data-icon="plus" data-theme="b"></li>
-					<li><input type="reset" value="Reset"  data-icon="minus"></li>
+					<li><input type="submit" value="Add Song" class="addData" id="submitButton"  data-icon="plus" data-theme="b"></li>
+					<li><input type="reset" value="Reset" id="resetButton" data-icon="minus"></li>
 				</ul>
 			</nav><!-- /navbar -->
 		</form>
+		
+		
 	</div>
 </div>
 
@@ -122,7 +124,22 @@
 		
 			<img id="requestImg" src="img/requestList.png"/>
 			
-				<section>
+			
+			<div id="listView">
+		
+		    </div>
+		    
+		    <nav data-role="navbar" id="editNav">
+				
+			</nav>
+			
+				<!--
+				
+				
+				
+				
+				
+<section>
 					<ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
 					    <li><a href="#">
 					        <img src="img/harvey.jpg">
@@ -144,7 +161,8 @@
 					    </li>
 					</ul>
 				</section>
-				
+
+	
 				<dialog>
 					<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
 					    <h3>Request Song?</h3>
@@ -152,15 +170,16 @@
 					    <a href="#requestList" data-role="button" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Request</a>
 					    <a href="#requestList" data-role="button" data-inline="true" data-mini="true">Cancel</a>
 					</div>
-				</dialog>
+				</dialog> 
+-->
 	
 				<footer data-role="footer" data-position="fixed">
 				    <nav data-role="navbar">
 				        <ul>
 				            <li><a href="#additem" data-icon="plus">Add Song</a></li>
 				        </ul>
-				    </nav><!-- /navbar -->
-				</footer><!-- /footer -->
+				    </nav>
+				</footer>
 		</div>
 		
 

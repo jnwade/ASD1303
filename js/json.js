@@ -7,7 +7,6 @@
 
 var json = {
 	"song1": {
-		"image": []
 		"genres": ["Genre:", "Disco"],
 		"songName": ["Title:", "Stayin Alive"],
 		"artist":["Artist:", "The Bee-Gees"],

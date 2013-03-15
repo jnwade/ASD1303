@@ -1,5 +1,6 @@
 $('#home').on('pageinit', function(){
 	//code needed for home page goes here
+
 	
 });	
 
@@ -18,8 +19,8 @@ $('#additem').on('pageinit', function(){
 	
 		});
 
-//Stores form data into Local Storage
-	function storeData(key){
+	//Stores form data into Local Storage
+	var storeData = function(data, key){
 	//If there is no key, this means this is a brand new item and we need a new key
 	if(!key){
 		var id 					= Math.floor(Math.random()*1000001);
@@ -38,25 +39,77 @@ $('#additem').on('pageinit', function(){
 		alert("Song Saved!"); 		
  	}
 
-	
+
+ 
+ $('#viewList').on('click', function getData() {
+ 
+		 	$('<ul>').attr({'class' : 'formObj', 'data-role' : 'listview'}).appendTo('#listView');
+		 	for(var i = 0, j = localStorage.length; i <j; i++) {
+			 	var data = localStorage.key(i);
+			 	var list = localStorage.getItem(data);
+			 	var jsonObject = JSON.parse(list);
+			 		
+			 	for(var n in jsonObject){
+			 	var dataInfo = jsonObject[n][0]+" "+jsonObject[n][1];
+			 	$('<li>' + dataInfo + '</li>').appendTo('.formObj');
+		 	} 
+		}
+	 		
+	 		makeLinks(data);
+		
+		});
+ 	
+ var makeLinks = function(data){
+ 	
+ 		$('<ul>').attr({'id' : 'linksLi',}).appendTo('#editNav');
+	 	
+	 		$('<li>').attr({'id' : 'dataLink1'}).appendTo('#linksLi');
+				$('<input>').attr({'type' : 'submit',
+								   'value' : 'Delete',
+								   'data-icon' : "plus",
+								   'data-theme' : "a",
+								   'onclick' : 'deleteItem(' + data + ');'})
+								   .appendTo('#dataLink1');
+			$('<li>').attr({'id' : 'dataLink2'}).appendTo('#linksLi');					   
+			    $('<input>').attr({'type' : 'submit',
+								   'value' : 'Edit',
+								   'data-icon' : "edit",
+								   'data-theme' : "b",
+								   'onclick' : 'editItem(' + data + ');'})
+								   .appendTo('#dataLink2');
+
+			
+ 	};
+ 	
+ 	
+ 	
+
+
+ 	
+
+ 	
+ 
+	 	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	//End of addItem Pageinit 
+ 	
 });
-			
-
-/*
-var autofillData = function (){
-	 
-};
-
-var getData = function(){
-
-};
 
 
-var	deleteItem = function (){
-			
-};
-					
-var clearLocal = function(){
 
-};
-*/
