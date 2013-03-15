@@ -36,12 +36,18 @@ $('#additem').on('pageinit', function(){
 			
 		//Save data into Local Storage: Use "Stringify" to convert our objects to strings (Local storage can only store strings
 		localStorage.setItem(id, JSON.stringify(item));
+		location.reload();
 		alert("Song Saved!"); 		
  	}
 
 
  
  $('#viewList').on('click', function getData() {
+ 	
+ 		if(localStorage.length === 0) {
+	 		autoFillData();
+	 		alert("Nothing has been saved yet so default data has been added.");
+	 		}
  
 		 	$('<ul>').attr({'class' : 'formObj', 'data-role' : 'listview'}).appendTo('#listView');
 		 	for(var i = 0, j = localStorage.length; i <j; i++) {
@@ -82,11 +88,52 @@ $('#additem').on('pageinit', function(){
  	};
  	
  	
+ 	var autoFillData = function() {
+	 	//Actual json object data required for this to work is coming from our json.js file which is loaded from our HTML page.
+	 	//Store json object into local storage.
+	 	for(var n in json){
+		 	var id = Math.floor(Math.random()*1000001);
+		 	localStorage.setItem(id, JSON.stringify(json[n]));
+		 	
+		 	
+		 	
+	 	}
+	 	
+ 	}
+ 	
+ 	var editItem = function() {
+		//Grab the data for our items in Local Storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		var nGenre = item.genres[1],
+			nsongName = item.songName[1],
+			nArtist = item.artist[1],
+			nRating = item.rating[1],
+			nNotes = item.notes[1];
+			
+		//Populate the form fields with current localStorage values.
+		$("#genres").val(nGenre); 
+		$("#songName").val(nsongName);
+		$("#artist").val(nArtist);
+		$("#rating").val(nRating);
+		$("#notes").val(nNotes);
+	
+		//Save the key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data we edited.
+			localStorage.setItem(item);
+			location.reload();
+			alert("Song Saved!");
+		};
+		
+		
  	
 
 
- 	
 
+
+ 	
+/* editSubmit.key = this.key; */
  	
  
 	 	
