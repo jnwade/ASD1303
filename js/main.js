@@ -16,8 +16,8 @@ $('#additem').on('pageinit', function(){
 			storeData(key);
 			}
 
-	
-		});
+	 	});
+		
 
 	//Stores form data into Local Storage
 	var storeData = function(data, key){
@@ -25,7 +25,7 @@ $('#additem').on('pageinit', function(){
 	if(!key){
 		var id 					= Math.floor(Math.random()*1000001);
 	}else{
-		id = key;
+		var id = key;
 	}
 		var item 				= {};
 			item.genres			= ["Genre:", $("#genres").val()];
@@ -38,7 +38,7 @@ $('#additem').on('pageinit', function(){
 		localStorage.setItem(id, JSON.stringify(item));
 		location.reload();
 		alert("Song Saved!"); 		
- 	}
+ 	};
 
 
  
@@ -78,10 +78,11 @@ $('#additem').on('pageinit', function(){
 								   .appendTo('#dataLink1');
 			$('<li>').attr({'id' : 'dataLink2'}).appendTo('#linksLi');					   
 			    $('<input>').attr({'type' : 'submit',
+			    				   'href' : '#additem',
 								   'value' : 'Edit',
+								   'id' : 'editSubmit',
 								   'data-icon' : "edit",
-								   'data-theme' : "b",
-								   'onclick' : 'editItem(' + data + ');'})
+								   'data-theme' : "b",})
 								   .appendTo('#dataLink2');
 
 			
@@ -101,7 +102,11 @@ $('#additem').on('pageinit', function(){
 	 	
  	}
  	
- 	var editItem = function() {
+ 		
+/*
+$('#editSubmit').on('click', function() {
+			
+			var editItem = function() {
 		//Grab the data for our items in Local Storage
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
@@ -113,25 +118,29 @@ $('#additem').on('pageinit', function(){
 			nNotes = item.notes[1];
 			
 		//Populate the form fields with current localStorage values.
-		$("#genres").val(nGenre); 
-		$("#songName").val(nsongName);
-		$("#artist").val(nArtist);
-		$("#rating").val(nRating);
-		$("#notes").val(nNotes);
+		$("#genres").val(nGenre.html()); 
+		$("#songName").val(nsongName.html());
+		$("#artist").val(nArtist.html());
+		$("#rating").val(nRating.html());
+		$("#notes").val(nNotes.html());
 	
 		//Save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited.
 			localStorage.setItem(item);
 			location.reload();
 			alert("Song Saved!");
-			
+
 		};
+
+			editItem();	
 		
+			
+		});
 		
+*/
 		
 		
  	
-
 
 
 
@@ -158,6 +167,8 @@ $('#additem').on('pageinit', function(){
  
  
  	//End of addItem Pageinit 
+ 	
+
  	
 });
 
